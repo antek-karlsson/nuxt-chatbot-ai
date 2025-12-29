@@ -1,25 +1,30 @@
 // @ts-check
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
+import prettierPlugin from 'eslint-plugin-prettier'
 
 export default createConfigForNuxt({
   features: {
-    // Rules for module authors
     tooling: true,
-    // Rules for formatting
-    stylistic: true
+    stylistic: false
   },
   dirs: {
     src: ['./playground']
   }
-}).append(
-  // Prettier integration - disable conflicting rules
-  {
+})
+  .append({
+    files: ['**/*.{js,ts,vue}'],
+    plugins: {
+      prettier: prettierPlugin
+    },
     rules: {
-      'prettier/prettier': 'error',
-      '@typescript-eslint/comma-dangle': 'off',
+      'prettier/prettier': 'error'
+    }
+  })
+  .append({
+    files: ['**/*.{js,ts,vue}'],
+    rules: {
       '@typescript-eslint/indent': 'off',
       '@typescript-eslint/quotes': 'off',
       '@typescript-eslint/semi': 'off'
     }
-  }
-)
+  })
