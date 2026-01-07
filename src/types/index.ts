@@ -3,11 +3,12 @@ export type Provider = 'openai' | 'anthropic' | 'google' | 'openrouter' | 'perpl
 export interface ProviderConfig {
   apiKey?: string
   baseURL?: string
+  model: string
 }
 
 export interface ChatbotModuleOptions {
   provider: Provider
-  model?: string
+  model: string
   systemPrompt?: string
   routeBase?: string // default: '/api/chatbot'
   timeoutMs?: number // default: 60000
