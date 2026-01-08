@@ -1,6 +1,7 @@
-import { defineNuxtModule } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addServerHandler } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { ChatbotModuleOptions } from './types/index'
+import { getDefaultModel } from './runtime/server/utils/getDefaultModel'
 
 export default defineNuxtModule<ChatbotModuleOptions>({
   meta: {
@@ -14,11 +15,15 @@ export default defineNuxtModule<ChatbotModuleOptions>({
     routeBase: '/api/chatbot',
     timeoutMs: 60000,
     providers: {
-      openrouter: { apiKey: process.env.OPENAI_API_KEY, baseURL: 'https://openrouter.ai/api/v1' }
+      openrouter: {
+        apiKey: process.env.OPENAI_API_KEY,
+        baseURL: 'https://openrouter.ai/api/v1',
+        model: getDefaultModel('openrouter')
+      }
     }
   },
   setup(options, nuxt) {
-    // const resolver = createResolver(import.meta.url)
+    const resolver = createResolver(import.meta.url)
 
     nuxt.options.runtimeConfig.chatbot = defu(
       options,
@@ -27,7 +32,11 @@ export default defineNuxtModule<ChatbotModuleOptions>({
 
     nuxt.options.runtimeConfig.public.chatbot = { routeBase: options.routeBase }
 
+    addServerHandler({
+      route: options.routeBase,
+      handler: resolver.resolve('./runtime/server/api/chatbot.post')
+    })
+
     // TODO: Component and composable registration
-    // TODO: Server handler registration
   }
 })
