@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, addServerHandler } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addServerHandler, addImports } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { ChatbotModuleOptions } from './types/index'
 import { getDefaultModel } from './runtime/server/utils/getDefaultModel'
@@ -37,6 +37,9 @@ export default defineNuxtModule<ChatbotModuleOptions>({
       handler: resolver.resolve('./runtime/server/api/chatbot.post')
     })
 
-    // TODO: Component and composable registration
+    addImports({
+      name: 'useChatbot',
+      from: resolver.resolve('./runtime/composables/useChatbot')
+    })
   }
 })
