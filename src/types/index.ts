@@ -1,4 +1,18 @@
-export type Provider = 'openai' | 'anthropic' | 'google' | 'openrouter' | 'perplexity' | 'vercel'
+import type {
+  ButtonProps,
+  CardProps,
+  ChatPromptProps,
+  ChatMessagesProps,
+  ChatPromptSubmitProps
+} from '@nuxt/ui'
+
+export type Provider =
+  | 'openai'
+  | 'anthropic'
+  | 'google'
+  | 'openrouter'
+  | 'perplexity'
+  | 'vercel'
 
 export interface ProviderConfig {
   apiKey?: string
@@ -15,4 +29,26 @@ export interface ChatbotModuleOptions {
   providers?: {
     [key in Provider]?: ProviderConfig
   }
+}
+
+interface TriggerProps extends ButtonProps {
+  triggerIcon?: string
+  closeIcon?: string
+}
+
+interface PopupProps extends CardProps {
+  width?: number
+  height?: number
+}
+
+export interface ChatbotProps {
+  title?: string
+  titleTag?: string
+  popup?: PopupProps
+  user?: ChatMessagesProps['user']
+  assistant?: ChatMessagesProps['assistant']
+  position?: 'bottom-right' | 'bottom-left'
+  trigger?: TriggerProps
+  prompt?: ChatPromptProps
+  promptSubmit?: ChatPromptSubmitProps
 }

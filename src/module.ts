@@ -1,4 +1,10 @@
-import { defineNuxtModule, createResolver, addServerHandler, addImports } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  createResolver,
+  addServerHandler,
+  addImports,
+  addComponent
+} from '@nuxt/kit'
 import { defu } from 'defu'
 import type { ChatbotModuleOptions } from './types/index'
 import { getDefaultModel } from './runtime/server/utils/getDefaultModel'
@@ -40,6 +46,11 @@ export default defineNuxtModule<ChatbotModuleOptions>({
     addImports({
       name: 'useChatbot',
       from: resolver.resolve('./runtime/composables/useChatbot')
+    })
+
+    addComponent({
+      name: 'NuxtChatbot',
+      filePath: resolver.resolve('./runtime/components/NuxtChatbot.vue')
     })
   }
 })

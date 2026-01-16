@@ -4,7 +4,7 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "none",
-  "printWidth": 100,
+  "printWidth": 80,
   "useTabs": false,
   "bracketSpacing": true,
   "bracketSameLine": false,

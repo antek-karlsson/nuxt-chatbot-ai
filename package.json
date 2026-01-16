@@ -63,10 +63,14 @@
     "vue-tsc": "^3.2.1"
   },
   "peerDependencies": {
-    "@nuxt/ui": "^4.3.0"
+    "@nuxt/ui": "^4.3.0",
+    "@nuxtjs/mdc": "^0.19.2"
   },
   "peerDependenciesMeta": {
     "@nuxt/ui": {
+      "optional": false
+    },
+    "@nuxtjs/mdc": {
       "optional": false
     }
   }
