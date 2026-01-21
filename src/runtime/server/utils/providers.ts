@@ -5,13 +5,12 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import { getDefaultModel } from './getDefaultModel'
 
 import type { LanguageModel } from 'ai'
-import type { ProviderConfig, Provider } from '../../../types/index.ts'
+import type { ChatbotModuleOptions } from '../../../types/index.ts'
 
 export function createProvider(
-  provider: Provider,
-  config: ProviderConfig
+  config: ChatbotModuleOptions
 ): LanguageModel | Promise<LanguageModel> {
-  const { apiKey, baseURL } = config
+  const { apiKey, baseURL, provider } = config
 
   const model = config.model ?? getDefaultModel(provider)
 
@@ -28,13 +27,13 @@ export function createProvider(
     case 'perplexity':
       return createOpenAI({
         apiKey,
-        baseURL: 'https://api.perplexity.ai'
+        baseURL
       })(model)
 
     case 'openrouter':
       return createOpenAI({
         apiKey,
-        baseURL: 'https://openrouter.ai/api/v1'
+        baseURL
       })(model)
 
     case 'anthropic':
@@ -66,7 +65,10 @@ async function loadCustomProvider(
     const imported = await import(providerPackage)
 
     if (baseURL) {
-      return imported.createOpenAI?.({ baseURL, apiKey }) || imported.default?.(apiKey)
+      return (
+        imported.createOpenAI?.({ baseURL, apiKey }) ||
+        imported.default?.(apiKey)
+      )
     }
 
     return imported.default?.(apiKey)(model) || imported(apiKey)(model)

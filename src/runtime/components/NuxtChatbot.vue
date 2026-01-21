@@ -42,20 +42,15 @@ const handleSubmit = () => {
         v-bind="popup"
         class="nuxt-chatbot-popup"
         :ui="{
-          root: `flex flex-col gap-2 h-full min-w-[${popupWidth}] min-h-[${popupHeight}]`,
-          body: 'flex-1 h-auto',
-          footer: 'align-self-end flex-shrink-0'
+          root: `flex flex-col gap-2  min-w-[${popupWidth}] min-h-[${popupHeight}]`,
+          body: 'flex-1 h-auto overflow-y-auto sm:p-2'
         }"
       >
         <template v-if="title" #header>
           <component :is="titleTag" class="font-medium">{{ title }}</component>
         </template>
 
-        <UChatMessages
-          :messages="chat.messages"
-          :status="chat.status"
-          :ui="{ root: 'flex-1 min-h-0 max-h-full overflow-y-auto' }"
-        >
+        <UChatMessages :messages="chat.messages" :status="chat.status">
           <template #content="{ message }">
             <template
               v-for="(part, index) in message.parts"
@@ -128,6 +123,11 @@ const handleSubmit = () => {
 .nuxt-chatbot-popup {
   width: v-bind(popupWidth);
   height: v-bind(popupHeight);
+
+  @media (max-width: 768px) {
+    max-width: 90vw;
+    max-height: 80vh;
+  }
 }
 
 .nuxt-chatbot-trigger {

@@ -4,9 +4,9 @@ export default defineNuxtConfig({
     provider: 'google',
     model: 'gemini-2.5-flash',
     systemPrompt: 'You are a helpful assistant.',
-    providers: {
-      google: { apiKey: process.env.GOOGLE_API_KEY, model: 'gemini-2.5-flash' }
-    }
+    apiKey: process.env.GOOGLE_API_KEY,
+    temperature: 1,
+    maxTokens: 4096
   },
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true }

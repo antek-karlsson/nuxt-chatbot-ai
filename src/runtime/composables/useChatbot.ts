@@ -9,7 +9,6 @@ export interface UseChatbotOptions {
 
 export function useChatbot(options: UseChatbotOptions = {}) {
   const { chatbot } = useRuntimeConfig().public
-  console.log(chatbot)
 
   return new Chat({
     messages: [],

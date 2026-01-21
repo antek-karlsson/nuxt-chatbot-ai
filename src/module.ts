@@ -16,17 +16,14 @@ export default defineNuxtModule<ChatbotModuleOptions>({
   },
   defaults: {
     provider: 'openrouter',
-    model: 'google/gemini-2.5-flash',
+    model: getDefaultModel('openrouter'),
+    apiKey: process.env.OPENAI_API_KEY,
+    baseURL: 'https://openrouter.ai/api/v1',
     systemPrompt: 'You are a helpful assistant.',
     routeBase: '/api/chatbot',
     timeoutMs: 60000,
-    providers: {
-      openrouter: {
-        apiKey: process.env.OPENAI_API_KEY,
-        baseURL: 'https://openrouter.ai/api/v1',
-        model: getDefaultModel('openrouter')
-      }
-    }
+    temperature: 0.7,
+    maxTokens: 4096
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)

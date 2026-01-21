@@ -13,15 +13,7 @@ export default defineEventHandler(async event => {
       throw createError({ statusCode: 400, message: 'Invalid messages' })
     }
 
-    const providerConfig = config.providers?.[config.provider]
-    if (!providerConfig) {
-      throw createError({ statusCode: 500, message: `Provider ${config.provider} not configured` })
-    }
-
-    const model = createProvider(config.provider, {
-      ...providerConfig,
-      model: config.model
-    })
+    const model = createProvider(config)
 
     const modelMessages = await convertToModelMessages(messages)
 
@@ -29,6 +21,8 @@ export default defineEventHandler(async event => {
       model: await model,
       system: config.systemPrompt,
       messages: modelMessages,
+      temperature: config.temperature,
+      maxOutputTokens: config.maxTokens,
       abortSignal: AbortSignal.timeout(config.timeoutMs || 60000)
     })
 

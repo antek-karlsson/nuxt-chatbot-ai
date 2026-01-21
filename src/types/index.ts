@@ -14,21 +14,16 @@ export type Provider =
   | 'perplexity'
   | 'vercel'
 
-export interface ProviderConfig {
-  apiKey?: string
-  baseURL?: string
-  model: string
-}
-
 export interface ChatbotModuleOptions {
   provider: Provider
   model: string
+  apiKey?: string
+  baseURL?: string
   systemPrompt?: string
   routeBase?: string // default: '/api/chatbot'
   timeoutMs?: number // default: 60000
-  providers?: {
-    [key in Provider]?: ProviderConfig
-  }
+  temperature?: number // default: 0.7
+  maxTokens?: number // default: 1000
 }
 
 interface TriggerProps extends ButtonProps {
