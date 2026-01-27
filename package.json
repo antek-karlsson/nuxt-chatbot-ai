@@ -1,8 +1,8 @@
 {
   "name": "nuxt-chatbot-ai",
-  "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "version": "0.1.0",
+  "description": "Out-of-the-box AI chat component for Nuxt",
+  "repository": "https://github.com/antek-karlsson/nuxt-chatbot-ai",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -42,7 +42,8 @@
     "@ai-sdk/openai": "^3.0.1",
     "@ai-sdk/vue": "^3.0.3",
     "@nuxt/kit": "^4.2.2",
-    "ai": "^6.0.3"
+    "ai": "^6.0.3",
+    "defu": "^6.1.4"
   },
   "devDependencies": {
     "@nuxt/devtools": "^3.1.1",

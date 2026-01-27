@@ -28,15 +28,19 @@ export default defineNuxtModule<ChatbotModuleOptions>({
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    nuxt.options.runtimeConfig.chatbot = defu(
+    const mergedOptions = defu(
       options,
-      nuxt.options.runtimeConfig.chatbot as ChatbotModuleOptions
+      nuxt.options.runtimeConfig.chatbot || {}
     )
 
-    nuxt.options.runtimeConfig.public.chatbot = { routeBase: options.routeBase }
+    nuxt.options.runtimeConfig.chatbot = mergedOptions
+
+    nuxt.options.runtimeConfig.public.chatbot = {
+      routeBase: mergedOptions.routeBase
+    }
 
     addServerHandler({
-      route: options.routeBase,
+      route: mergedOptions.routeBase,
       handler: resolver.resolve('./runtime/server/api/chatbot.post')
     })
 

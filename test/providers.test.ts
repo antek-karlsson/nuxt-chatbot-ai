@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { createProvider } from '../src/runtime/server/utils/providers'
+import type { ChatbotModuleOptions } from '../src/types/index'
 
 describe('createProvider', () => {
   it('should create OpenAI provider', () => {
@@ -7,7 +8,7 @@ describe('createProvider', () => {
       provider: 'openai',
       apiKey: 'test-key',
       model: 'gpt-4o-mini'
-    }
+    } as ChatbotModuleOptions
     const model = createProvider(config)
 
     expect(model).toBeDefined()
@@ -15,8 +16,11 @@ describe('createProvider', () => {
   })
 
   it('should throw error for missing API key', () => {
-    expect(() => createProvider('openai', { model: 'gpt-4o-mini' })).toThrow(
-      'API key is required'
-    )
+    expect(() =>
+      createProvider({
+        provider: 'openai',
+        model: 'gpt-4o-mini'
+      })
+    ).toThrow('API key is required')
   })
 })
