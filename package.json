@@ -1,6 +1,6 @@
 {
   "name": "nuxt-chatbot-ai",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Out-of-the-box AI chat component for Nuxt",
   "repository": "https://github.com/antek-karlsson/nuxt-chatbot-ai",
   "license": "MIT",
