@@ -1,3 +1,7 @@
 # Changelog
 
+## v0.1.2
+
+[compare changes](https://github.com/antek-karlsson/nuxt-chatbot-ai/compare/v0.1.1...v0.1.2)
+
 ## v0.1.1
