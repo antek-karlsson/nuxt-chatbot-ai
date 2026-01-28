@@ -41,15 +41,21 @@ export default defineNuxtModule<ChatbotModuleOptions>({
 
     nuxt.hook('vite:extendConfig', (config, { isClient, isServer }) => {
       if (isClient) {
+        const optimizeDeps = config.optimizeDeps || {}
+        ;(config as { optimizeDeps: { exclude?: string[] } }).optimizeDeps = {
+          ...optimizeDeps,
+          exclude: [...(optimizeDeps.exclude || []), '@vercel/oidc']
+        }
+
+        const stubPath = resolver.resolve(
+          './runtime/stub/vercel-oidc-client.mjs'
+        )
         const stubPlugin = {
           name: 'nuxt-chatbot-ai:stub-vercel-oidc',
+          enforce: 'pre' as const,
           resolveId(id: string) {
-            if (id === '@vercel/oidc') return '\0virtual:vercel-oidc-stub'
-            return null
-          },
-          load(id: string) {
-            if (id === '\0virtual:vercel-oidc-stub') {
-              return 'export function getContext() { return undefined; }\nexport default {};'
+            if (id === '@vercel/oidc') {
+              return stubPath
             }
             return null
           }
