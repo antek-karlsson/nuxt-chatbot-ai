@@ -18,8 +18,8 @@ importers:
         specifier: ^4.2.2
         version: 4.3.0(@parcel/watcher@2.5.6)(@vue/compiler-sfc@3.5.27)(cac@6.7.14)(db0@0.3.4)(ioredis@5.9.2)(lightningcss@1.31.1)(magicast@0.5.1)(rollup@4.57.0)(terser@5.46.0)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(yaml@2.8.2)
       nuxt-chatbot-ai:
-        specifier: ^0.1.1
-        version: 0.1.1(@nuxt/ui@4.4.0(@tiptap/extensions@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(@tiptap/y-tiptap@3.0.2(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.5)(y-protocols@1.0.7(yjs@13.6.29))(yjs@13.6.29))(db0@0.3.4)(embla-carousel@8.6.0)(ioredis@5.9.2)(magicast@0.5.1)(tailwindcss@4.1.18)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))(yjs@13.6.29)(zod@4.3.6))(@nuxtjs/mdc@0.19.2(magicast@0.5.1))(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3))(zod@4.3.6)
+        specifier: ^0.1.2
+        version: 0.1.2(@nuxt/ui@4.4.0(@tiptap/extensions@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(@tiptap/y-tiptap@3.0.2(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.5)(y-protocols@1.0.7(yjs@13.6.29))(yjs@13.6.29))(db0@0.3.4)(embla-carousel@8.6.0)(ioredis@5.9.2)(magicast@0.5.1)(tailwindcss@4.1.18)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))(yjs@13.6.29)(zod@4.3.6))(@nuxtjs/mdc@0.19.2(magicast@0.5.1))(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3))(zod@4.3.6)
 
 packages:
 
@@ -3587,8 +3587,8 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
-  nuxt-chatbot-ai@0.1.1:
-    resolution: {integrity: sha512-TYl9ie/l02MGeiZp2Kd7pTWq7kyrkkiJcx63MHSCVRbixex48scGaInkZXYyx2jB014EqhsM0671Yvs9fcwMAw==}
+  nuxt-chatbot-ai@0.1.2:
+    resolution: {integrity: sha512-pK9PRYuS7pH1fDEMbWueMx/+/VOSc2knicyxtb1c6rf/i8Cd5nJOFijjVQMp7Ui1f6Gc3VCNhozgvzfX0Xi7kA==}
     peerDependencies:
       '@nuxt/ui': ^4.3.0
       '@nuxtjs/mdc': ^0.19.2
@@ -8924,7 +8924,7 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuxt-chatbot-ai@0.1.1(@nuxt/ui@4.4.0(@tiptap/extensions@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(@tiptap/y-tiptap@3.0.2(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.5)(y-protocols@1.0.7(yjs@13.6.29))(yjs@13.6.29))(db0@0.3.4)(embla-carousel@8.6.0)(ioredis@5.9.2)(magicast@0.5.1)(tailwindcss@4.1.18)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))(yjs@13.6.29)(zod@4.3.6))(@nuxtjs/mdc@0.19.2(magicast@0.5.1))(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3))(zod@4.3.6):
+  nuxt-chatbot-ai@0.1.2(@nuxt/ui@4.4.0(@tiptap/extensions@3.18.0(@tiptap/core@3.18.0(@tiptap/pm@3.18.0))(@tiptap/pm@3.18.0))(@tiptap/y-tiptap@3.0.2(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.5)(y-protocols@1.0.7(yjs@13.6.29))(yjs@13.6.29))(db0@0.3.4)(embla-carousel@8.6.0)(ioredis@5.9.2)(magicast@0.5.1)(tailwindcss@4.1.18)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(vue-router@4.6.4(vue@3.5.27(typescript@5.9.3)))(vue@3.5.27(typescript@5.9.3))(yjs@13.6.29)(zod@4.3.6))(@nuxtjs/mdc@0.19.2(magicast@0.5.1))(magicast@0.5.1)(vue@3.5.27(typescript@5.9.3))(zod@4.3.6):
     dependencies:
       '@ai-sdk/anthropic': 3.0.28(zod@4.3.6)
       '@ai-sdk/google': 3.0.15(zod@4.3.6)

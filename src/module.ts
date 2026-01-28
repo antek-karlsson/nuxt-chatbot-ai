@@ -47,15 +47,33 @@ export default defineNuxtModule<ChatbotModuleOptions>({
           exclude: [...(optimizeDeps.exclude || []), '@vercel/oidc']
         }
 
-        const stubPath = resolver.resolve(
-          './runtime/stub/vercel-oidc-client.mjs'
-        )
+        const VIRTUAL_MODULE_ID = '\0virtual:vercel-oidc-stub'
+        const stubCode = [
+          '// Stub for @vercel/oidc on the client side',
+          "// The real package is Node-only and doesn't export getContext in the browser build",
+          'export function getContext() {',
+          '  return undefined',
+          '}',
+          '',
+          'export function getVercelOidcToken() {',
+          '  return undefined',
+          '}',
+          '',
+          'export default {}'
+        ].join('\n')
+
         const stubPlugin = {
           name: 'nuxt-chatbot-ai:stub-vercel-oidc',
           enforce: 'pre' as const,
           resolveId(id: string) {
             if (id === '@vercel/oidc') {
-              return stubPath
+              return VIRTUAL_MODULE_ID
+            }
+            return null
+          },
+          load(id: string) {
+            if (id === VIRTUAL_MODULE_ID) {
+              return stubCode
             }
             return null
           }

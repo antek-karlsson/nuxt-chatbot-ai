@@ -11,6 +11,6 @@
     "@nuxt/ui": "^4.3.0",
     "@nuxtjs/mdc": "^0.19.2",
     "nuxt": "^4.2.2",
-    "nuxt-chatbot-ai": "^0.1.1"
+    "nuxt-chatbot-ai": "^0.1.2"
   }
 }
